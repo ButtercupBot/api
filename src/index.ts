@@ -1,5 +1,4 @@
 console.time('Full Start');
-console.log('using', Bun.env)
 import { ActivityType, Client, GatewayIntentBits, REST, Routes } from 'discord.js';
 import { version } from '../package.json';
 import { CreateFunctionMessage, GetFunctionMessage } from '$funcOnMessage';
