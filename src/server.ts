@@ -78,7 +78,7 @@ const api = new Elysia()
                     httpOnly: true,
                     secure: true
                 });
-                return redirect(Bun.env.NODE_ENV ? 'https://buttercup.boo/' : 'http://localhost:5173/');
+                return redirect(Bun.env.NODE_ENV ? 'https://dash.buttercup.boo/' : 'http://localhost:5173/');
             })
             .get('/logout', async ({
                 redirect,
@@ -106,7 +106,7 @@ const api = new Elysia()
                     httpOnly: true,
                     secure: true
                 });
-                return redirect(Bun.env.NODE_ENV ? 'https://buttercup.boo/' : 'http://localhost:5173/');
+                return redirect(Bun.env.NODE_ENV ? 'https://dash.buttercup.boo/' : 'http://localhost:5173/');
             })
     )
     .guard(
