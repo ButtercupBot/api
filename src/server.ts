@@ -60,25 +60,25 @@ const api = new Elysia()
                 const user = await oauth2.user(accessToken).getUser();
                 token.set({
                     value: accessToken,
-                    domain: Bun.env.NODE_ENV ? 'buttercup.boo' : undefined,
+                    domain: Bun.env.NODE_ENV ? 'buttercup.boo' : 'localhost',
                     path: '/',
                     maxAge: accessToken.expires_in,
                     expires: new Date(accessToken.expires_in),
-                    sameSite: 'strict',
+                    sameSite: 'lax',
                     httpOnly: true,
                     secure: true
                 });
                 userData.set({
                     value: user,
-                    domain: Bun.env.NODE_ENV ? 'buttercup.boo' : undefined,
+                    domain: Bun.env.NODE_ENV ? 'buttercup.boo' : 'localhost',
                     path: '/',
                     maxAge: accessToken.expires_in,
                     expires: new Date(accessToken.expires_in),
-                    sameSite: 'strict',
+                    sameSite: 'lax',
                     httpOnly: true,
                     secure: true
                 });
-                return redirect(Bun.env.NODE_ENV ? 'buttercup.boo/' : 'localhost:5173/');
+                return redirect(Bun.env.NODE_ENV ? 'https://buttercup.boo/' : 'http://localhost:5173/');
             })
             .get('/logout', async ({
                 redirect,
@@ -88,21 +88,21 @@ const api = new Elysia()
                 userData.remove();
                 token.set({
                     value: null,
-                    domain: Bun.env.NODE_ENV ? 'buttercup.boo' : undefined,
+                    domain: Bun.env.NODE_ENV ? 'buttercup.boo' : 'localhost:5173',
                     path: '/',
                     maxAge: 0,
                     expires: new Date(),
-                    sameSite: 'strict',
+                    sameSite: 'lax',
                     httpOnly: true,
                     secure: true
                 });
                 userData.set({
                     value: null,
-                    domain: Bun.env.NODE_ENV ? 'buttercup.boo' : undefined,
+                    domain: Bun.env.NODE_ENV ? 'buttercup.boo' : 'localhost:5173',
                     path: '/',
                     maxAge: 0,
                     expires: new Date(),
-                    sameSite: 'strict',
+                    sameSite: 'lax',
                     httpOnly: true,
                     secure: true
                 });
