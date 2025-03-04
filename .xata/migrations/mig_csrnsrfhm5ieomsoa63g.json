@@ -1,0 +1,26 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_csrnsrfhm5ieomsoa63g",
+    "operations": [
+      {
+        "add_column": {
+          "table": "guilds",
+          "column": {
+            "pk": false,
+            "name": "managers",
+            "type": "text[]",
+            "unique": false,
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_csrnsrfhm5ieomsoa63g",
+  "parent": "mig_csrnsevhm5ieomsoa62g",
+  "schema": "public",
+  "startedAt": "2024-11-15T17:01:33.476494Z"
+}

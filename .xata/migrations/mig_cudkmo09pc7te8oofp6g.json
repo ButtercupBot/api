@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cudkmo09pc7te8oofp6g",
+    "operations": [
+      {
+        "add_column": {
+          "table": "guilds",
+          "column": {
+            "name": "managers",
+            "type": "text[]",
+            "comment": "",
+            "default": "'{}'"
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cudkmo09pc7te8oofp6g",
+  "parent": "mig_cudkm409pc7te8oofp5g",
+  "schema": "public",
+  "startedAt": "2025-01-30T09:50:26.01563Z"
+}

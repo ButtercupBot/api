@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cudofog9pc7te8oofqeg",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "FuncOnMessage",
+          "column": {
+            "name": "guild_id",
+            "type": "text",
+            "comment": ""
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cudofog9pc7te8oofqeg",
+  "parent": "mig_cudofk89pc7te8oofqcg",
+  "schema": "public",
+  "startedAt": "2025-01-30T14:08:35.338755Z"
+}

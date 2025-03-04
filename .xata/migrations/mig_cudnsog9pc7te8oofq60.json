@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cudnsog9pc7te8oofq60",
+    "operations": [
+      {
+        "add_column": {
+          "table": "FuncOnMessage",
+          "column": {
+            "name": "on_match",
+            "type": "json",
+            "comment": "",
+            "default": "'{\n    \"type\": \"message\",\n    \"content\": \"meow\"\n}'"
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cudnsog9pc7te8oofq60",
+  "parent": "mig_cudns5uta3pe3ep12gmg",
+  "schema": "public",
+  "startedAt": "2025-01-30T13:28:03.107888Z"
+}

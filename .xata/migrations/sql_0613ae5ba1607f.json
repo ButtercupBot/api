@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_0613ae5ba1607f",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE account (id text NOT NULL PRIMARY KEY, \"accountId\" text NOT NULL, \"providerId\" text NOT NULL, \"userId\" text NOT NULL REFERENCES \"user\" (id), \"accessToken\" text, \"refreshToken\" text, \"idToken\" text, \"accessTokenExpiresAt\" timestamp, \"refreshTokenExpiresAt\" timestamp, scope text, password text, \"createdAt\" timestamp NOT NULL, \"updatedAt\" timestamp NOT NULL)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_0613ae5ba1607f",
+  "parent": "sql_d208b6cd15e478",
+  "schema": "public",
+  "startedAt": "2025-01-23T04:04:26.677069Z"
+}

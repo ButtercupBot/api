@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cudo9k07p0tebf9f5s70",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "FuncOnMessage",
+          "column": {
+            "name": "matcher",
+            "type": "text[]",
+            "comment": ""
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cudo9k07p0tebf9f5s70",
+  "parent": "mig_cudo8ug9pc7te8oofq90",
+  "schema": "public",
+  "startedAt": "2025-01-30T13:55:29.171927Z"
+}

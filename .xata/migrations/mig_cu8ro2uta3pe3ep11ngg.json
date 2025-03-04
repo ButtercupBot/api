@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cu8ro2uta3pe3ep11ngg",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "guilds"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cu8ro2uta3pe3ep11ngg",
+  "parent": "mig_csta9okkcp6ut97eh8a0",
+  "schema": "public",
+  "startedAt": "2025-01-23T03:48:27.569102Z"
+}

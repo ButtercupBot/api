@@ -1,0 +1,11 @@
+if (!Bun.env.DISCORD_TOKEN) throw new Error('DISCORD_TOKEN not set');
+if (!Bun.env.XATA_BRANCH) throw new Error('XATA_BRANCH not set');
+if (!Bun.env.XATA_API_KEY) throw new Error('XATA_API_KEY not set');
+if (!Bun.env.PORT) throw new Error('PORT not set');
+if (!Bun.env.DISCORD_SECRET) throw new Error('DISCORD_SECRET not set');
+if (!Bun.env.CLIENT_ID) throw new Error('CLIENT_ID not set');
+if (!Bun.env.DISCORD_CALLBACK) throw new Error('DISCORD_CALLBACK not set');
+if (!Bun.env.S3_ACCESS_KEY_ID) throw new Error('S3_ACCESS_KEY_ID not set');
+if (!Bun.env.S3_SECRET_ACCESS_KEY) throw new Error('S3_SECRET_ACCESS_KEY not set');
+if (!Bun.env.S3_BUCKET) throw new Error('S3_BUCKET not set');
+if (!Bun.env.S3_ENDPOINT) throw new Error('S3_ENDPOINT not set');

@@ -1,0 +1,25 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cudkn6g9pc7te8oofp7g",
+    "operations": [
+      {
+        "alter_column": {
+          "up": "(SELECT CASE WHEN \"guild_id\" IS NULL THEN '' ELSE \"guild_id\" END)",
+          "down": "(SELECT CASE WHEN \"guild_id\" IS NULL THEN '' ELSE \"guild_id\" END)",
+          "table": "guilds",
+          "column": "guild_id",
+          "unique": {
+            "name": "guilds_guild_id_unique"
+          },
+          "nullable": false
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cudkn6g9pc7te8oofp7g",
+  "parent": "mig_cudkmqg7p0tebf9f5rc0",
+  "schema": "public",
+  "startedAt": "2025-01-30T09:51:23.428762Z"
+}

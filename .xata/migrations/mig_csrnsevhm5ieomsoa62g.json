@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_csrnsevhm5ieomsoa62g",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "guilds",
+          "column": {
+            "pk": false,
+            "name": "guild_id",
+            "type": "text",
+            "unique": true,
+            "comment": "",
+            "nullable": false
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_csrnsevhm5ieomsoa62g",
+  "parent": "mig_csrns9vhm5ieomsoa61g",
+  "schema": "public",
+  "startedAt": "2024-11-15T17:00:44.087249Z"
+}

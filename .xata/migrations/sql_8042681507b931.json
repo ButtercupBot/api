@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "sql_8042681507b931",
+    "operations": [
+      {
+        "sql": {
+          "up": "CREATE TABLE \"user\" (id text NOT NULL PRIMARY KEY, name text NOT NULL, email text NOT NULL UNIQUE, \"emailVerified\" boolean NOT NULL, image text, \"createdAt\" timestamp NOT NULL, \"updatedAt\" timestamp NOT NULL)"
+        }
+      }
+    ]
+  },
+  "migrationType": "inferred",
+  "name": "sql_8042681507b931",
+  "parent": "mig_cu8ro409pc7te8ooeog0",
+  "schema": "public",
+  "startedAt": "2025-01-23T04:04:26.374519Z"
+}

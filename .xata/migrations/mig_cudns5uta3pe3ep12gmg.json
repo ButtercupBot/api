@@ -1,0 +1,20 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cudns5uta3pe3ep12gmg",
+    "operations": [
+      {
+        "drop_column": {
+          "down": "''",
+          "table": "FuncOnMessage",
+          "column": "on_match"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cudns5uta3pe3ep12gmg",
+  "parent": "mig_cudns3eta3pe3ep12glg",
+  "schema": "public",
+  "startedAt": "2025-01-30T13:26:48.301652Z"
+}

@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Ahhh_Saturn-s-workspace-tncb11.eu-west-1.xata.sh/db/buttercup",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}

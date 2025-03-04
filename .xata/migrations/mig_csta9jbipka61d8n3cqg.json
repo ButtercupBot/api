@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_csta9jbipka61d8n3cqg",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "welcomeMessage",
+          "column": {
+            "pk": false,
+            "name": "welcome_channel",
+            "type": "text",
+            "unique": false,
+            "comment": "",
+            "nullable": false
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_csta9jbipka61d8n3cqg",
+  "parent": "mig_csta9fckcp6ut97eh890",
+  "schema": "public",
+  "startedAt": "2024-11-18T02:22:06.206852Z"
+}

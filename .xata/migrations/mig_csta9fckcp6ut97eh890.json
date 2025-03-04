@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_csta9fckcp6ut97eh890",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "welcomeMessage",
+          "column": {
+            "pk": false,
+            "name": "guild_id",
+            "type": "text",
+            "unique": true,
+            "comment": "",
+            "nullable": false
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_csta9fckcp6ut97eh890",
+  "parent": "mig_csta9bvhm5ieomsoahhg",
+  "schema": "public",
+  "startedAt": "2024-11-18T02:21:50.060973Z"
+}

@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cuv66a7a6k56m04347ug",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "guilds",
+          "column": {
+            "name": "plan",
+            "type": "text",
+            "comment": ""
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cuv66a7a6k56m04347ug",
+  "parent": "mig_cudofog9pc7te8oofqeg",
+  "schema": "public",
+  "startedAt": "2025-02-26T00:41:14.053749Z"
+}
