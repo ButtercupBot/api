@@ -59,7 +59,6 @@ export class CreateSlashCommand {
 //     private record: functionMessage;
 //     constructor(guild_id: string, matcher: string[], on_match: { type: 'message', content: string; }) {
 //         this.record = {
-//             id: Bun.randomUUIDv7(),
 //             guild_id,
 //             matcher,
 //             on_match,

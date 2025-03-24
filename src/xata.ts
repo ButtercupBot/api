@@ -85,6 +85,230 @@ const tables = [
     ],
   },
   {
+    name: "FuncSlash",
+    checkConstraints: {
+      FuncSlash_xata_id_length_xata_id: {
+        name: "FuncSlash_xata_id_length_xata_id",
+        columns: ["xata_id"],
+        definition: "CHECK ((length(xata_id) < 256))",
+      },
+    },
+    foreignKeys: {},
+    primaryKey: [],
+    uniqueConstraints: {
+      _pgroll_new_FuncSlash_xata_id_key: {
+        name: "_pgroll_new_FuncSlash_xata_id_key",
+        columns: ["xata_id"],
+      },
+    },
+    columns: [
+      {
+        name: "args",
+        type: "multiple",
+        notNull: false,
+        unique: false,
+        defaultValue: "'{}'::text[]",
+        comment: "",
+      },
+      {
+        name: "butter_script",
+        type: "text",
+        notNull: true,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "command",
+        type: "text",
+        notNull: true,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "guild_id",
+        type: "text",
+        notNull: true,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "xata_createdat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_id",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+        comment: "",
+      },
+      {
+        name: "xata_updatedat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_version",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "0",
+        comment: "",
+      },
+    ],
+  },
+  {
+    name: "apiKeys",
+    checkConstraints: {
+      apiKeys_xata_id_length_xata_id: {
+        name: "apiKeys_xata_id_length_xata_id",
+        columns: ["xata_id"],
+        definition: "CHECK ((length(xata_id) < 256))",
+      },
+    },
+    foreignKeys: {},
+    primaryKey: [],
+    uniqueConstraints: {
+      _pgroll_new_apiKeys_xata_id_key: {
+        name: "_pgroll_new_apiKeys_xata_id_key",
+        columns: ["xata_id"],
+      },
+      apiKeys__pgroll_new_key_key: {
+        name: "apiKeys__pgroll_new_key_key",
+        columns: ["key"],
+      },
+    },
+    columns: [
+      {
+        name: "key",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "scopes",
+        type: "multiple",
+        notNull: true,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "xata_createdat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_id",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+        comment: "",
+      },
+      {
+        name: "xata_updatedat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_version",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "0",
+        comment: "",
+      },
+    ],
+  },
+  {
+    name: "butterscripts",
+    checkConstraints: {
+      butterscripts_xata_id_length_xata_id: {
+        name: "butterscripts_xata_id_length_xata_id",
+        columns: ["xata_id"],
+        definition: "CHECK ((length(xata_id) < 256))",
+      },
+    },
+    foreignKeys: {},
+    primaryKey: [],
+    uniqueConstraints: {
+      _pgroll_new_butterscripts_xata_id_key: {
+        name: "_pgroll_new_butterscripts_xata_id_key",
+        columns: ["xata_id"],
+      },
+    },
+    columns: [
+      {
+        name: "guild_id",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "script_ids",
+        type: "multiple",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "xata_createdat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_id",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+        comment: "",
+      },
+      {
+        name: "xata_updatedat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_version",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "0",
+        comment: "",
+      },
+    ],
+  },
+  {
     name: "guilds",
     checkConstraints: {
       guilds_xata_id_length_xata_id: {
@@ -172,11 +396,23 @@ export type InferredTypes = SchemaInference<SchemaTables>;
 export type FuncOnMessage = InferredTypes["FuncOnMessage"];
 export type FuncOnMessageRecord = FuncOnMessage & XataRecord;
 
+export type FuncSlash = InferredTypes["FuncSlash"];
+export type FuncSlashRecord = FuncSlash & XataRecord;
+
+export type ApiKeys = InferredTypes["apiKeys"];
+export type ApiKeysRecord = ApiKeys & XataRecord;
+
+export type Butterscripts = InferredTypes["butterscripts"];
+export type ButterscriptsRecord = Butterscripts & XataRecord;
+
 export type Guilds = InferredTypes["guilds"];
 export type GuildsRecord = Guilds & XataRecord;
 
 export type DatabaseSchema = {
   FuncOnMessage: FuncOnMessageRecord;
+  FuncSlash: FuncSlashRecord;
+  apiKeys: ApiKeysRecord;
+  butterscripts: ButterscriptsRecord;
   guilds: GuildsRecord;
 };
 

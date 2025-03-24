@@ -11,7 +11,6 @@ console.log = (...data: any[]) => {
 console.log('loaded butter dep');
 
 class Butter {
-    meow = 'meow';
     reply = (message: string) => {
         self.postMessage({ type: 'reply', data: message });
         return true;

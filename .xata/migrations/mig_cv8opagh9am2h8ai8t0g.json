@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv8opagh9am2h8ai8t0g",
+    "operations": [
+      {
+        "add_column": {
+          "table": "butterscripts",
+          "column": {
+            "name": "guild_id",
+            "type": "text",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv8opagh9am2h8ai8t0g",
+  "parent": "mig_cv8op78eiu2msd56f1cg",
+  "schema": "public",
+  "startedAt": "2025-03-12T13:31:23.618981Z"
+}

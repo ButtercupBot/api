@@ -12,5 +12,6 @@ declare module "bun" {
         S3_SECRET_ACCESS_KEY: string;
         S3_BUCKET: string;
         S3_ENDPOINT: string;
+        KEY_FINGERPRINT: string;
     }
 }

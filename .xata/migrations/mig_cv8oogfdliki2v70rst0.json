@@ -1,0 +1,25 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv8oogfdliki2v70rst0",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "butterscripts",
+          "column": {
+            "name": "script_id",
+            "type": "text",
+            "unique": true,
+            "comment": ""
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv8oogfdliki2v70rst0",
+  "parent": "mig_cv8onlvdliki2v70rss0",
+  "schema": "public",
+  "startedAt": "2025-03-12T13:29:37.849566Z"
+}

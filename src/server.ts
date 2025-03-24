@@ -7,6 +7,8 @@ import { version } from '../package.json';
 import Guild from '$libGuild';
 import { DiscordAuth, Scopes } from 'discord-auth.ts';
 import type { AccessToken } from 'discord-auth.ts/src/interfaces/user/accessToken';
+import { validateAPIKey } from '$libkeys';
+import { ButterFile } from '$libbutterScripts';
 
 
 const oauth2 = new DiscordAuth(
@@ -111,12 +113,19 @@ const api = new Elysia()
     )
     .guard(
         {
-            beforeHandle({ set, bearer }) {
-                if (bearer !== Bun.env.API_KEY) {
-                    set.status = 400;
+            async beforeHandle({ set, bearer, path }) {
+                const unauthorized = () => {
+                    set.status = 403;
                     set.headers['www-authenticate'] =
-                        `Bearer realm='sign', error="invalid_request`;
-                    return 'Unauthorized';
+                        `Bearer realm='sign', error="invalid_request"`;
+                    return 'Forbidden';
+
+                };
+
+                if (bearer !== Bun.env.API_KEY) {
+                    const scopes = await validateAPIKey(bearer);
+                    if (scopes === null) return unauthorized();
+                    if (!scopes.includes(path)) return unauthorized();
                 }
             },
             detail: {
@@ -142,6 +151,14 @@ const api = new Elysia()
                     Guild.channels.all(id)
                 )
                 .get('guild/:id/roles', ({ params: { id } }) => Guild.roles.get.all(id))
+                .get('guild/:id/butter/:butter', ({ params: { id, butter } }) => new ButterFile(id, butter).get())
+                .post('guild/:id/butter/:butter', async ({ params: { id, butter }, body }) => {
+                    console.log(id, butter, body);
+                    console.log(await new ButterFile(id, butter).write(body));
+                    return '';
+                }, {
+                    body: t.String()
+                })
                 .post(
                     '/bot/presence/',
                     ({ body, set }) => {

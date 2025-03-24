@@ -9,3 +9,4 @@ if (!Bun.env.S3_ACCESS_KEY_ID) throw new Error('S3_ACCESS_KEY_ID not set');
 if (!Bun.env.S3_SECRET_ACCESS_KEY) throw new Error('S3_SECRET_ACCESS_KEY not set');
 if (!Bun.env.S3_BUCKET) throw new Error('S3_BUCKET not set');
 if (!Bun.env.S3_ENDPOINT) throw new Error('S3_ENDPOINT not set');
+if (!Bun.env.KEY_FINGERPRINT) throw new Error('KEY_FINGERPRINT not set');

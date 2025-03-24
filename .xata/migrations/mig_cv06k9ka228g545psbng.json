@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cv06k9ka228g545psbng",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "FuncSlash",
+          "column": {
+            "name": "butter_script",
+            "type": "text",
+            "comment": ""
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cv06k9ka228g545psbng",
+  "parent": "mig_cv06hb9si1hnp5fglrg0",
+  "schema": "public",
+  "startedAt": "2025-02-27T13:35:34.777957Z"
+}
