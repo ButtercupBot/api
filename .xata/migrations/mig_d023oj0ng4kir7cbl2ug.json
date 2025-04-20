@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d023oj0ng4kir7cbl2ug",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "butterscripts"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d023oj0ng4kir7cbl2ug",
+  "parent": "mig_cv8oph0h9am2h8ai8t2g",
+  "schema": "public",
+  "startedAt": "2025-04-20T00:14:05.230422Z"
+}

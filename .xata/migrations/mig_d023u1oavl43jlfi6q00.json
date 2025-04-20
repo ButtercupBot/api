@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d023u1oavl43jlfi6q00",
+    "operations": [
+      {
+        "add_column": {
+          "table": "FuncOnSlash",
+          "column": {
+            "name": "args",
+            "type": "text[]",
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d023u1oavl43jlfi6q00",
+  "parent": "mig_d023tugng4kir7cbl30g",
+  "schema": "public",
+  "startedAt": "2025-04-20T00:25:43.994483Z"
+}

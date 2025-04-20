@@ -1,0 +1,24 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d023shgavl43jlfi6pv0",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "FuncOnSlash",
+          "column": {
+            "name": "guild_id",
+            "type": "text",
+            "comment": ""
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d023shgavl43jlfi6pv0",
+  "parent": "mig_d023se8avl43jlfi6pu0",
+  "schema": "public",
+  "startedAt": "2025-04-20T00:22:30.988852Z"
+}

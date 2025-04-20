@@ -8,7 +8,6 @@ import Guild from '$libGuild';
 import { DiscordAuth, Scopes } from 'discord-auth.ts';
 import type { AccessToken } from 'discord-auth.ts/src/interfaces/user/accessToken';
 import { validateAPIKey } from '$libkeys';
-import { ButterFile } from '$libbutterScripts';
 
 
 const oauth2 = new DiscordAuth(
@@ -151,14 +150,14 @@ const api = new Elysia()
                     Guild.channels.all(id)
                 )
                 .get('guild/:id/roles', ({ params: { id } }) => Guild.roles.get.all(id))
-                .get('guild/:id/butter/:butter', ({ params: { id, butter } }) => new ButterFile(id, butter).get())
-                .post('guild/:id/butter/:butter', async ({ params: { id, butter }, body }) => {
-                    console.log(id, butter, body);
-                    console.log(await new ButterFile(id, butter).write(body));
-                    return '';
-                }, {
-                    body: t.String()
-                })
+                // .get('guild/:id/butter/:butter', ({ params: { id, butter } }) => new ButterFile(id, butter).get())
+                // .post('guild/:id/butter/:butter', async ({ params: { id, butter }, body }) => {
+                //     console.log(id, butter, body);
+                //     console.log(await new ButterFile(id, butter).write(body));
+                //     return '';
+                // }, {
+                //     body: t.String()
+                // })
                 .post(
                     '/bot/presence/',
                     ({ body, set }) => {

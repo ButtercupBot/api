@@ -1,0 +1,22 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_d0273cgng4kir7cbl3gg",
+    "operations": [
+      {
+        "alter_column": {
+          "up": "(SELECT CASE WHEN \"description\" IS NULL THEN '' ELSE \"description\" END)",
+          "down": "(SELECT CASE WHEN \"description\" IS NULL THEN '' ELSE \"description\" END)",
+          "table": "FuncOnSlash",
+          "column": "description",
+          "nullable": false
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_d0273cgng4kir7cbl3gg",
+  "parent": "mig_d0272q9ebjdi38akkv8g",
+  "schema": "public",
+  "startedAt": "2025-04-20T04:01:54.904263Z"
+}

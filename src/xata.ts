@@ -85,10 +85,10 @@ const tables = [
     ],
   },
   {
-    name: "FuncSlash",
+    name: "FuncOnSlash",
     checkConstraints: {
-      FuncSlash_xata_id_length_xata_id: {
-        name: "FuncSlash_xata_id_length_xata_id",
+      FuncOnSlash_xata_id_length_xata_id: {
+        name: "FuncOnSlash_xata_id_length_xata_id",
         columns: ["xata_id"],
         definition: "CHECK ((length(xata_id) < 256))",
       },
@@ -96,8 +96,8 @@ const tables = [
     foreignKeys: {},
     primaryKey: [],
     uniqueConstraints: {
-      _pgroll_new_FuncSlash_xata_id_key: {
-        name: "_pgroll_new_FuncSlash_xata_id_key",
+      _pgroll_new_FuncOnSlash_xata_id_key: {
+        name: "_pgroll_new_FuncOnSlash_xata_id_key",
         columns: ["xata_id"],
       },
     },
@@ -106,14 +106,6 @@ const tables = [
         name: "args",
         type: "multiple",
         notNull: false,
-        unique: false,
-        defaultValue: "'{}'::text[]",
-        comment: "",
-      },
-      {
-        name: "butter_script",
-        type: "text",
-        notNull: true,
         unique: false,
         defaultValue: null,
         comment: "",
@@ -127,8 +119,32 @@ const tables = [
         comment: "",
       },
       {
+        name: "description",
+        type: "text",
+        notNull: true,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
         name: "guild_id",
         type: "text",
+        notNull: true,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "permission",
+        type: "text",
+        notNull: true,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "response",
+        type: "json",
         notNull: true,
         unique: false,
         defaultValue: null,
@@ -202,74 +218,6 @@ const tables = [
         name: "scopes",
         type: "multiple",
         notNull: true,
-        unique: false,
-        defaultValue: null,
-        comment: "",
-      },
-      {
-        name: "xata_createdat",
-        type: "datetime",
-        notNull: true,
-        unique: false,
-        defaultValue: "now()",
-        comment: "",
-      },
-      {
-        name: "xata_id",
-        type: "text",
-        notNull: true,
-        unique: true,
-        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
-        comment: "",
-      },
-      {
-        name: "xata_updatedat",
-        type: "datetime",
-        notNull: true,
-        unique: false,
-        defaultValue: "now()",
-        comment: "",
-      },
-      {
-        name: "xata_version",
-        type: "int",
-        notNull: true,
-        unique: false,
-        defaultValue: "0",
-        comment: "",
-      },
-    ],
-  },
-  {
-    name: "butterscripts",
-    checkConstraints: {
-      butterscripts_xata_id_length_xata_id: {
-        name: "butterscripts_xata_id_length_xata_id",
-        columns: ["xata_id"],
-        definition: "CHECK ((length(xata_id) < 256))",
-      },
-    },
-    foreignKeys: {},
-    primaryKey: [],
-    uniqueConstraints: {
-      _pgroll_new_butterscripts_xata_id_key: {
-        name: "_pgroll_new_butterscripts_xata_id_key",
-        columns: ["xata_id"],
-      },
-    },
-    columns: [
-      {
-        name: "guild_id",
-        type: "text",
-        notNull: false,
-        unique: false,
-        defaultValue: null,
-        comment: "",
-      },
-      {
-        name: "script_ids",
-        type: "multiple",
-        notNull: false,
         unique: false,
         defaultValue: null,
         comment: "",
@@ -396,23 +344,19 @@ export type InferredTypes = SchemaInference<SchemaTables>;
 export type FuncOnMessage = InferredTypes["FuncOnMessage"];
 export type FuncOnMessageRecord = FuncOnMessage & XataRecord;
 
-export type FuncSlash = InferredTypes["FuncSlash"];
-export type FuncSlashRecord = FuncSlash & XataRecord;
+export type FuncOnSlash = InferredTypes["FuncOnSlash"];
+export type FuncOnSlashRecord = FuncOnSlash & XataRecord;
 
 export type ApiKeys = InferredTypes["apiKeys"];
 export type ApiKeysRecord = ApiKeys & XataRecord;
-
-export type Butterscripts = InferredTypes["butterscripts"];
-export type ButterscriptsRecord = Butterscripts & XataRecord;
 
 export type Guilds = InferredTypes["guilds"];
 export type GuildsRecord = Guilds & XataRecord;
 
 export type DatabaseSchema = {
   FuncOnMessage: FuncOnMessageRecord;
-  FuncSlash: FuncSlashRecord;
+  FuncOnSlash: FuncOnSlashRecord;
   apiKeys: ApiKeysRecord;
-  butterscripts: ButterscriptsRecord;
   guilds: GuildsRecord;
 };
 
