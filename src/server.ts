@@ -44,6 +44,7 @@ const api = new Elysia()
     )
     .use(bearer())
     .get('/', ({ redirect }) => redirect('/swagger'))
+    .get('/heath', 200)
     .group('auth', { detail: { tags: ['Auth'] } }, (auth) =>
         auth
             .get('/login', ({ redirect }) => redirect(oauth2.getAuthUrl()))
