@@ -8,6 +8,7 @@ import Guild from '$libGuild';
 import { DiscordAuth, Scopes } from 'discord-auth.ts';
 import type { AccessToken } from 'discord-auth.ts/src/interfaces/user/accessToken';
 import { validateAPIKey } from '$libkeys';
+import { variables } from '$libvariableParser';
 
 
 const oauth2 = new DiscordAuth(
@@ -45,6 +46,7 @@ const api = new Elysia()
     .use(bearer())
     .get('/', ({ redirect }) => redirect('/swagger'))
     .get('/heath', 200)
+    .get('/builtins/variables', variables)
     .group('auth', { detail: { tags: ['Auth'] } }, (auth) =>
         auth
             .get('/login', ({ redirect }) => redirect(oauth2.getAuthUrl()))

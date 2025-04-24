@@ -27,15 +27,15 @@ client.on('ready', async (client) => {
         state: `😺 Meow! v${version}`,
         type: ActivityType.Custom,
     });
-    for (const OnMessage of await new GetFunctionMessage().all()) {
-        console.time(`init message function ${OnMessage.id}`);
-        new CreateFunctionMessage(
-            OnMessage.guild_id,
-            OnMessage.matcher,
-            OnMessage.on_match
-        ).discordRegister();
-        console.timeEnd(`init message function ${OnMessage.id}`);
-    }
+    // for (const OnMessage of await new GetFunctionMessage().all()) {
+    //     console.time(`init message function ${OnMessage.id}`);
+    //     new CreateFunctionMessage(
+    //         OnMessage.guild_id,
+    //         OnMessage.matcher,
+    //         OnMessage.on_match
+    //     ).discordRegister();
+    //     console.timeEnd(`init message function ${OnMessage.id}`);
+    // }
     await handler.register();
     console.timeEnd('Full Start');
 });

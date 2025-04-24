@@ -104,10 +104,10 @@ const tables = [
     columns: [
       {
         name: "args",
-        type: "multiple",
-        notNull: false,
+        type: "json",
+        notNull: true,
         unique: false,
-        defaultValue: null,
+        defaultValue: "'[]'::json",
         comment: "",
       },
       {

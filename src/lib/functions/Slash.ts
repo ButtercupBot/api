@@ -4,6 +4,7 @@ import { getXataClient, type FuncOnSlashRecord } from "../../xata";
 import type { EditableData, SelectableColumn, SelectedPick } from "@xata.io/client";
 import Guild from "$libGuild";
 import { embedRespond, messageRespond, type EmbedResponseSchema, type MessageResponseSchema } from "$libresponses";
+import { parse } from "$libvariableParser";
 
 const rest = new REST({ version: '9' }).setToken(Bun.env.DISCORD_TOKEN);
 
@@ -13,7 +14,7 @@ type functionSlash = EditableData<SelectedPick<FuncOnSlashRecord, typeof fields>
 
 export class CreateSlashCommand {
     private record: functionSlash;
-    constructor(guild_id: string, command: string, description: string, permission: string, response: { type: 'message' | 'embed'; data: MessageResponseSchema | EmbedResponseSchema; }, args?: string[],) {
+    constructor(guild_id: string, command: string, description: string, permission: string, response: { type: 'message' | 'embed'; data: MessageResponseSchema | EmbedResponseSchema; }, args?: { name: string, type: 'string', description: string; }[]) {
         this.record = {
             id: Bun.randomUUIDv7(),
             guild_id,
@@ -34,9 +35,26 @@ export class InteractionHandler {
     init = async () => {
         const commands = await xata.db.FuncOnSlash.getAll();
         for (const command of commands) {
-            const slashCommand = new SlashCommandBuilder()
+            let slashCommand = new SlashCommandBuilder()
                 .setName(command.command)
                 .setDescription(command.description);
+
+
+            if (command.args.length > 0) {
+                for (const arg of command.args) {
+                    switch (arg.type) {
+                        case 'string': {
+                            slashCommand.addStringOption(option =>
+                                option
+                                    .setName(arg.name as string)
+                                    .setDescription(arg.description as string)
+                            );
+                            break;
+                        }
+                    }
+                }
+            }
+
             this.create(command.guild_id, slashCommand);
         }
     };
@@ -95,8 +113,12 @@ export class InteractionHandler {
             switch (record.response.type as 'message' | 'embed') {
                 case 'message': {
                     const { content, reply, expire } = record.response.data as MessageResponseSchema;
+                    let parsedContent: string | undefined;
+                    if (content.includes('#[')) {
+                        parsedContent = await parse(content, interaction);
+                    }
                     messageRespond(interaction, {
-                        content,
+                        content: parsedContent || content,
                         reply,
                         expire
                     });
